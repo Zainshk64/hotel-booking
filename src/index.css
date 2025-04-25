@@ -1,0 +1,45 @@
+@import "tailwindcss";
+@theme{
+    --color-primary : #2563EB;
+    --color-secondary: #FBBF24;
+}
+
+*{
+    font-family: Outfit;
+}
+
+.playfair{
+    font-family: playfair !important;
+}
+
+.links {
+    position: relative;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .links::after {
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background-color: white;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .links:hover::after {
+    width: 100%;
+  }
+  
+  .trans{
+    transition: .4s linear;
+  }
+
+  .herobg{
+    background-image: url('../src/assets/heroImage.png');
+    background-position: center;
+    background-size: cover;
+    
+  }
