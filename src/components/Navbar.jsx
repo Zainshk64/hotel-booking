@@ -51,7 +51,7 @@ const Navbar = () => {
                             <button onClick={openSignIn} className='px-5 py-2 rounded-xl border-none text-lg  bg-black text-white' >Login</button>
                         </div>
                 }
-                <div className='md:hidden text-white ' onClick={() => setIsMenu(true)}  >
+                <div className={`md:hidden  ${isScroll ? 'invert' : ''} text-white `} onClick={() => setIsMenu(true)}  >
                     <CgMenuRight className='h-8 w-8' />
                 </div>
             </nav>
