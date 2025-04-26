@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { assets, navLinks } from '../assets/assets'
 import { Link, useNavigate } from 'react-router-dom'
 import { CgMenuRight } from "react-icons/cg";
@@ -10,19 +10,30 @@ const Navbar = () => {
     const { user } = useUser();
 
     const [isMenu, setIsMenu] = useState(false);
+    const [isScroll, setIsScroll] = useState(false);
+
+
     const navigate = useNavigate();
     const BookIcon = () => (
         <svg className="w-4 h-4 text-gray-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" >
             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 19V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v13H7a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h12M9 3v14m7 0v4" />
         </svg>
     )
+
+    useEffect(()=>{
+        const handleScroll = ()=>{
+            setIsScroll(window.scrollY > 10);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return ()=> window.removeEventListener('scroll', handleScroll);
+    },[])
     return (
         <>
-            <nav className='fixed top-0 w-full p-4 z-50 px-6 md:px-16 lg:px-24 xl:px-32 flex justify-between items-center' >
+            <nav className={`fixed top-0 w-full p-4 z-50 px-6 md:px-16 lg:px-24 xl:px-32 flex justify-between items-center transition-all duration-500 ease-in-out  ${isScroll ? 'bg-white/50 backdrop-blur-lg py-3 md:py-4 text-gray-700' : 'py-4 md:py-6' } `} >
                 <div  >
-                    <img src={assets.logo} alt="" className='h-9' />
+                    <img src={assets.logo} alt="" className={`h-9 ${isScroll ? 'invert' : ''} `} />
                 </div>
-                <div className='md:flex hidden text-white items-center space-x-6 text-md ' >
+                <div className={`md:flex hidden text-white font-light items-center space-x-6 ${isScroll ? 'invert' : ''} text-md `} >
                     {navLinks.map((item, index) => (
                         <Link to={item.path} key={index} className='links'  >{item.link}</Link>
                     ))}
