@@ -3,6 +3,8 @@ import Hero from '../components/Hero'
 import Featured from '../components/Featured';
 import Exclusive from '../components/Exclusive';
 import Testinomial from '../components/Testinomial';
+import Newsletter from '../components/Newsletter';
+import Footer from '../components/Footer';
 
 const Home = () => {
   return (
@@ -11,6 +13,8 @@ const Home = () => {
       <Featured/>
       <Exclusive/>
       <Testinomial/>
+      <Newsletter/>
+      <Footer/>
     </div>
   )
 }
