@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { assets, facilityIcons, roomsDummyData } from '../assets/assets';
+import { assets, facilityIcons, roomCommonData, roomsDummyData } from '../assets/assets';
 import { Star } from '../components/Testinomial';
 const RoomDetail = () => {
     const { id } = useParams();
@@ -63,7 +63,7 @@ const RoomDetail = () => {
             </div>
 
             <div className='bg-white shade mt-10 p-5 ' >
-                <div className='flex flex-col lg:flex-row  gap-5 ' >
+                <form className='flex flex-col lg:flex-row  gap-5 ' >
                     <div className='flex flex-col lg:border-r lg:border-neutral-300  lg:pr-10 ' >
                         <label htmlFor="checkin">Check-In</label>
                         <input type="date" name="" className='border border-neutral-200 p-2' id="checkin" />
@@ -76,10 +76,30 @@ const RoomDetail = () => {
                         <label htmlFor="guest">Guest</label>
                         <input type="number" name="" className='border border-neutral-200 p-2' id="guest" />
                     </div>
-                    <button className='bg-blue-600 px-6 py-3 text-white cursor-pointer shadow active:scale-95 transition-all ' >Check Availabilty</button>
+                    <button type='submit' className='bg-blue-600 px-6 py-3 text-white cursor-pointer shadow active:scale-95 transition-all ' >Check Availabilty</button>
 
+                </form>
+
+            </div>
+
+            <div className='pt-30' > 
+                {
+                    roomCommonData.map((item,index)=>(
+                        <div key={index} className='flex gap-3 mb-4' >
+                            <div>
+                                <img src={item.icon} alt="" />
+                            </div>
+                            <div>
+                                <h1 >{item.title}</h1>
+                                <p className='text-gray-400' >{item.description}</p>
+                            </div>
+                        </div>
+                    ))
+                }
+
+                <div className='mt-10 border-t border-b py-10 max-w-3xl border-neutral-300'>
+                    <p className='text-gray-500' >Guests will be allocated on the ground floor according to availability. You get a comfortable Two bedroom apartment has a true city feeling. The price quoted is for two guest, at the guest slot please mark the number of guests to get the exact price for groups. The Guests will be allocated ground floor according to availability. You get the comfortable two bedroom apartment that has a true city feeling.</p>
                 </div>
-
             </div>
 
 
