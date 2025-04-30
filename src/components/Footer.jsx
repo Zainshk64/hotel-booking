@@ -5,9 +5,9 @@ import { FaArrowRight } from "react-icons/fa6";
 const Footer = () => {
     return (
         <footer className='bg-[#F6F9FC] px-6 md:px-16 py-10 lg:px-24'>
-            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-start lg:place-items-center gap-8 pb-10'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 place-items-start items-start gap-8 pb-10'>
 
-                {/* Column 1: Logo + Description + Socials */}
+    
                 <div className='text-gray-500 space-y-4'>
                     <img src={assets.logo} className='invert w-28' alt="Logo" />
                     <p className='text-sm'>
@@ -21,7 +21,6 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Column 2: Company */}
                 <div className='space-y-4'>
                     <h1 className='playfair text-xl'>Company</h1>
                     <div className='flex flex-col text-gray-500 space-y-2 font-light text-sm'>
@@ -33,7 +32,6 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Column 3: Support */}
                 <div className='space-y-4'>
                     <h1 className='playfair text-xl'>Support</h1>
                     <div className='flex flex-col text-gray-500 space-y-2 font-light text-sm'>
@@ -45,7 +43,6 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Column 4: Newsletter */}
                 <div className='space-y-4'>
                     <h1 className='playfair text-xl'>Stay Updated</h1>
                     <p className='text-gray-500 text-sm'>
@@ -67,7 +64,6 @@ const Footer = () => {
 
             <hr className='border-gray-300' />
 
-            {/* Footer Bottom Row */}
             <div className='text-gray-500 mt-5 flex flex-col md:flex-row justify-between items-center gap-3 text-sm'>
                 <p>© {new Date().getFullYear()} QuickStay. All rights reserved.</p>
                 <div className='space-x-3'>

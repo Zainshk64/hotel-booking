@@ -2,20 +2,10 @@ import React from 'react'
 import Title from './Title'
 import { testimonials } from '../assets/assets'
 import { FaStar } from "react-icons/fa";
+import { CiStar } from "react-icons/ci";
 const Testinomial = () => {
 
-    const Star =()=>{
-        return (
-            <div className='text-orange-400 flex ' >
-                <FaStar/>
-                <FaStar/>
-                <FaStar/>
-                <FaStar/>
-
-            </div>
-        )
-
-    }
+  
   return (
     <div className='px-6  md:px-16 lg:px-24 bg-[#F8FAFC] mt-10 pt-10 pb-20 '>
         <div>
@@ -33,7 +23,7 @@ const Testinomial = () => {
                             <p className='text-gray-500' >{item.address}</p>
                             </div>
                         </div>
-                        <div className='my-3 flex items-center' >Rating: <Star /></div>
+                        <div className='my-3 flex items-center' >Rating:  <Star /> </div>
                         <p className='text-gray-500' >{item.review}</p>
                     </div>
                 ))
@@ -45,3 +35,18 @@ const Testinomial = () => {
 }
 
 export default Testinomial 
+
+
+export const Star =()=>{
+    return (
+        <div className='text-orange-400 flex ' >
+            <FaStar/>
+            <FaStar/>
+            <FaStar/>
+            <FaStar/>
+            <CiStar/>
+
+        </div>
+    )
+
+}

@@ -76,7 +76,7 @@ export const assets = {
 
 export const navLinks = [
     { link: 'Home' , path:'/'},
-    { link: 'Hotels' , path:'/'},
+    { link: 'Hotels' , path:'/rooms'},
     { link: 'Experience' , path:'/'},
     { link: 'About' , path:'/'},
 

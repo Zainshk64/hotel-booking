@@ -21,12 +21,20 @@ const Navbar = () => {
     )
 
     useEffect(()=>{
+        if(location.pathname !== '/'){
+            setIsScroll(true);
+            return
+        }
+        else{
+            setIsScroll(false);
+        }
+        setIsScroll(prev => location.pathname !== '/' ? true : prev);
         const handleScroll = ()=>{
             setIsScroll(window.scrollY > 10);
         };
         window.addEventListener('scroll', handleScroll);
         return ()=> window.removeEventListener('scroll', handleScroll);
-    },[])
+    },[location.pathname])
     return (
         <>
             <nav className={`fixed top-0 w-full p-4 z-50 px-6 md:px-16 lg:px-24 xl:px-32 flex justify-between items-center transition-all duration-500 ease-in-out  ${isScroll ? 'bg-white/50 backdrop-blur-lg py-3 md:py-4 text-gray-700' : 'py-4 md:py-6' } `} >
