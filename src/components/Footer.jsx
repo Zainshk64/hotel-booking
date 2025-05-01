@@ -5,7 +5,7 @@ import { FaArrowRight } from "react-icons/fa6";
 const Footer = () => {
     return (
         <footer className='bg-[#F6F9FC] px-6 md:px-16 py-10 lg:px-24'>
-            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 place-items-start items-start gap-8 pb-10'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 place-items-start items-start gap-8 pb-10'>
 
     
                 <div className='text-gray-500 space-y-4'>

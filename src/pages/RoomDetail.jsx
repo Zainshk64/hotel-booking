@@ -16,11 +16,11 @@ const RoomDetail = () => {
     return room && (
         <div className='py-28 md:py-35 px-4 md:px-16 lg:px-24 xl:px-32'
         >
-            <div className='flex items-center gap-2' >
+            <div className='flex flex-col md:flex-row items-start lg:items-center gap-2' >
                 <h1 className='text-3xl playfair' >{room.hotel.name} <span className='text-sm'>({room.roomType})</span> </h1>
                 <p className='p-1 px-2 font-inter text-sm rounded-lg text-white bg-orange-500' >20% OFF</p>
             </div>
-            <div className='flex items-center' >
+            <div className='flex items-center mt-4' >
                 <Star />
                 <p className='ml-2' >200+ Ratings</p>
             </div>

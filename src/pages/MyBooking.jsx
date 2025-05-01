@@ -52,7 +52,7 @@ const MyBooking = () => {
                                     </div>
                                 </div>
 
-                                <div className='flex flex-col items-start justify-center'>
+                                <div className='flex flex-col  items-start justify-center'>
                                     <div className='flex items-center gap-2' >
                                         <div className={`h-3 w-3 rounded-full ${item.isPaid ? "bg-green-500" : 'bg-red-500'}`} >
 

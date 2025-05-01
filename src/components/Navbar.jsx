@@ -20,24 +20,24 @@ const Navbar = () => {
         </svg>
     )
 
-    useEffect(()=>{
-        if(location.pathname !== '/'){
+    useEffect(() => {
+        if (location.pathname !== '/') {
             setIsScroll(true);
             return
         }
-        else{
+        else {
             setIsScroll(false);
         }
         setIsScroll(prev => location.pathname !== '/' ? true : prev);
-        const handleScroll = ()=>{
+        const handleScroll = () => {
             setIsScroll(window.scrollY > 10);
         };
         window.addEventListener('scroll', handleScroll);
-        return ()=> window.removeEventListener('scroll', handleScroll);
-    },[location.pathname])
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [location.pathname])
     return (
         <>
-            <nav className={`fixed top-0 w-full p-4 z-50 px-6 md:px-16 lg:px-24 xl:px-32 flex justify-between items-center transition-all duration-500 ease-in-out  ${isScroll ? 'bg-white/50 backdrop-blur-lg py-3 md:py-4 text-gray-700' : 'py-4 md:py-6' } `} >
+            <nav className={`fixed top-0 w-full p-4 z-50 px-6 md:px-16 lg:px-24 xl:px-32 flex justify-between items-center transition-all duration-500 ease-in-out  ${isScroll ? 'bg-white/50 backdrop-blur-lg py-3 md:py-4 text-gray-700' : 'py-4 md:py-6'} `} >
                 <div  >
                     <img src={assets.logo} alt="" className={`h-9 ${isScroll ? 'invert' : ''} `} />
                 </div>
@@ -48,13 +48,18 @@ const Navbar = () => {
                     <button className='px-5 rounded-full border text-md  border-neutral-300 ' >Dashboard</button>
                 </div>
 
+                <div className='flex gap-4' >
 
                 {
-                    user ? <UserButton  >
-                        <UserButton.MenuItems>
-                            <UserButton.Action label='My Booking' labelIcon={<BookIcon />} onClick={() => navigate('/mybookings')} />
-                        </UserButton.MenuItems>
-                    </UserButton> :
+                    user ?
+                        <div className='jus'>
+
+                            <UserButton >
+                                <UserButton.MenuItems>
+                                    <UserButton.Action label='My Booking' labelIcon={<BookIcon />} onClick={() => navigate('/mybookings')} />
+                                </UserButton.MenuItems>
+                            </UserButton>
+                        </div> :
                         <div className='md:flex hidden' >
                             <button onClick={openSignIn} className='px-5 py-2 rounded-xl border-none text-lg  bg-black text-white' >Login</button>
                         </div>
@@ -62,6 +67,8 @@ const Navbar = () => {
                 <div className={`md:hidden  ${isScroll ? 'invert' : ''} text-white `} onClick={() => setIsMenu(true)}  >
                     <CgMenuRight className='h-8 w-8' />
                 </div>
+                </div>
+
             </nav>
 
             {/* mobile */}
@@ -76,17 +83,17 @@ const Navbar = () => {
                             ))}
 
                             {
-                                user &&  <button onClick={()=>navigate('/owner')} className='px-5 rounded-full border text-md  border-neutral-300 ' >Dashboard</button>
+                                user && <button onClick={() => navigate('/owner')} className='px-5 rounded-full border text-md  border-neutral-300 ' >Dashboard</button>
                             }
 
 
-                           
+
                             {
-                                !user &&  <div className='' >
-                                <button onClick={openSignIn} className='px-5 py-2 rounded-xl border-none text-lg  bg-black text-white' >Login</button>
-                             </div>
+                                !user && <div className='' >
+                                    <button onClick={openSignIn} className='px-5 py-2 rounded-xl border-none text-lg  bg-black text-white' >Login</button>
+                                </div>
                             }
-                        
+
                         </div>
 
 
