@@ -5,13 +5,13 @@ import { assets, dashboardDummyData } from '../../assets/assets'
 const Dashboard = () => {
     const [dash, setdash] = useState(dashboardDummyData);
     return (
-        <div>
+        <div className='-mt-8 '>
             <div>
                 <Title title={'Dashboard'} font={''} align={'left'} subTitle={' Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium deserunt quasi exercitationem adipisci hic et sequi, ratione libero distinctio tempore itaque dolorem quas veritatis explicabo odit nisi qui eligendi illum.'} />
             </div>
-            <div className='flex gap-3' >
+            <div className='flex flex-wrap  gap-3' >
 
-                <div className='flex  items-center gap-4 bg-indigo-400/10 p-3' >
+                <div className='flex items-center gap-4 bg-indigo-400/10 p-3' >
                     <img src={assets.totalBookingIcon} alt="" />
                     <div>
                         <p>Total Bookings</p>
@@ -29,7 +29,7 @@ const Dashboard = () => {
                 </div>
             </div>
             <h1 className='text-2xl mt-4' >User Booking</h1>
-            <div className='w-full max-w-3xl text-left border border-gray-300 rounded-lg max-h-80 overflow-y-scroll' >
+            <div className='w-full max-w-xl text-left border border-gray-300 rounded-lg max-h-80 overflow-y-scroll ' >
                 <table className='w-full'>
                     <thead className='bg-gray-50'>
                         <tr>
@@ -43,7 +43,10 @@ const Dashboard = () => {
                                 <td className='py-3 px-4 text-gray-700 border-t border-gray-300' >{item.user.username}</td>
                                 <td className='py-3 px-4 text-gray-700 border-t border-gray-300' >{item.room.roomType}</td>
                                 <td className='py-3 px-4 text-gray-700 border-t border-gray-300' > ${item.totalPrice}</td>
-                                <td className='py-3 px-4 text-gray-700 border-t border-gray-300' >{item.isPaid ? 'compl' : 'Pending'}</td>
+                                <td className={`py-3 px-4 text-gray-700 border-t border-gray-300 flex text-sm text-center  `} >
+                                    <button className={`px-2 py-1 rounded-lg ${item.isPaid ? "bg-green-400  " : 'bg-amber-300' }`} >{item.isPaid ? 'completed' : 'Pending'}</button>
+                                    </td>
+
                             </tr>
                         ))}
                     </tbody>
